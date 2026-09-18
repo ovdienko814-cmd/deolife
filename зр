@@ -1,0 +1,59 @@
+import turtle
+
+t = turtle.Turtle()
+t.speed(100)
+svetly_bezhevy = "#F0D9B5"
+korichnevy = "#8B5A2B"
+temno_bezhevy = "#8B6F47"
+
+
+def kletka(color):
+    t.fillcolor(color)
+    t.pencolor(temno_bezhevy)
+    t.begin_fill()
+
+    for i in range(4):
+        t.forward(20)
+        t.left(90)
+
+    t.end_fill()
+
+
+for row in range(8):
+    t.penup()
+    t.goto(0, row * 20)
+    t.pendown()
+
+    for col in range(8):
+        if (row + col) % 2 == 0:
+            kletka(korichnevy)
+        else:
+            kletka(svetly_bezhevy)
+
+        t.forward(20)
+t.pencolor(temno_bezhevy)
+
+t.penup()
+t.goto(-15, -15)
+t.pendown()
+
+t.goto(0, 0)
+t.goto(-15, -15)
+
+t.goto(-15, 175)
+t.goto(175, 175)
+t.goto(175, -15)
+t.goto(-15, -15)
+
+t.goto(-15, 175)
+t.goto(0, 160)
+t.goto(-15, 175)
+
+t.goto(175, 175)
+t.goto(160, 160)
+t.goto(175, 175)
+
+t.goto(175, -15)
+t.goto(165, -5)
+
+turtle.mainloop()
