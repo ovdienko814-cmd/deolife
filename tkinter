@@ -1,6 +1,5 @@
 import tkinter
 
-
 okno = tkinter.Tk()
 okno.config(width = 400, height = 400,bg = "pink")
 okno.title("tkinter, okno")
