@@ -1,36 +1,29 @@
-def paint_board(holst):
-
+def paint_board(holst, start_x, start_y, cell_size):
     for delta_iy in range(8):
-        delta_y = 40 * delta_iy
+        delta_y = cell_size * delta_iy
 
         for delta_ix in range(8):
-            delta_x = 40 * delta_ix
+            delta_x = cell_size * delta_ix
+            holst.create_rectangle(start_x + delta_x, start_y + delta_y, start_x + cell_size
+             + delta_x, start_y + cell_size + delta_y, fill="orange" if (delta_ix + delta_iy) % 2 == 0 else "red")
 
-            holst.create_rectangle(500 + delta_x,500 - delta_y,540 + delta_x,540 - delta_y, fill="orange" if (delta_ix + delta_iy) % 2 == 0 else "red")
+
+def gran(holst, start_x, start_y, board_size):
+    holst.create_rectangle(start_x - 25, start_y - 25, start_x + board_size + 25,
+    start_y + board_size + 25, fill="orange", width=5)
+    holst.create_line(start_x - 25, start_y - 25, start_x + board_size + 25, start_y + board_size + 25, width=3)
+    holst.create_line(start_x - 25, start_y + board_size + 25, start_x + board_size + 25, start_y - 25, width=3)
+    holst.create_rectangle(start_x, start_y, start_x + board_size, start_y + board_size, width=4)
 
 
-def facets(holst):
-
-    movement_x = 520
-
+def facets(holst, start_y, board_size, cell_size, start_x):
+    letters = "ABCDEFGH"
+    movement_x = start_x + cell_size / 2
     for bukwa in range(8):
-        letters = "ABCDEFGH"
-        holst.create_text(movement_x, 551 , text=letters[bukwa], width = 4)
-        movement_x += 40
-        movement_y = 520
-
-        for chisla in range(8):
-            numbers = "12345678"
-            holst.create_text(490, movement_y, text=numbers[chisla], width = 4)
-            movement_y -= 40
-
-
-def draw_frame(holst):
-
-    holst.create_rectangle(475, 195, 845, 565, fill = "orange", width = 5)
-    holst.create_line(475, 195, 845, 565, width = 3)
-    holst.create_line(475, 565, 845, 195, width = 3)
-
-def draw_board_frame(holst):
-
-    holst.create_rectangle(500, 540, 821, 220, width = 4)
+        holst.create_text(movement_x, start_y + board_size + 12, text=letters[bukwa])
+        movement_x += cell_size
+        numbers = "87654321"
+        movement_y = start_y + cell_size / 2
+    for chisla in range(8):
+            holst.create_text(start_x - 12, movement_y, text=numbers[chisla])
+            movement_y += cell_size
