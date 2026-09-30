@@ -1,1 +1,3 @@
 gitignorete
+*.pyc
+__pycache__
