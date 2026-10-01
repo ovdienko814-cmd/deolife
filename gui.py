@@ -1,4 +1,4 @@
-def paint_board(holst, start_x, start_y, cell_size):
+def paint_board(holst, start_x, start_y, cell_size, screen_height, screen_width):
     for delta_iy in range(8):
         delta_y = cell_size * delta_iy
 
@@ -8,7 +8,7 @@ def paint_board(holst, start_x, start_y, cell_size):
              + delta_x, start_y + cell_size + delta_y, fill="orange" if (delta_ix + delta_iy) % 2 == 0 else "red")
 
 
-def gran(holst, start_x, start_y, board_size):
+def gran(holst, start_x, start_y, board_size, screen_height, screen_width):
     holst.create_rectangle(start_x - 25, start_y - 25, start_x + board_size + 25,
     start_y + board_size + 25, fill="orange", width=5)
     holst.create_line(start_x - 25, start_y - 25, start_x + board_size + 25, start_y + board_size + 25, width=3)
@@ -16,7 +16,7 @@ def gran(holst, start_x, start_y, board_size):
     holst.create_rectangle(start_x, start_y, start_x + board_size, start_y + board_size, width=4)
 
 
-def facets(holst, start_y, board_size, cell_size, start_x):
+def facets(holst, start_y, board_size, cell_size, start_x, screen_height, screen_width):
     letters = "ABCDEFGH"
     movement_x = start_x + cell_size / 2
     for bukwa in range(8):

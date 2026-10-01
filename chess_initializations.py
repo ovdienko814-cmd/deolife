@@ -1,4 +1,8 @@
-def init_size(tkinter,gran,facets,paint_board):
+import tkinter
+
+
+def init_size():
+
     okno = tkinter.Tk()
     okno.state("zoomed")
     okno.title("tkinter, okno")
@@ -13,6 +17,5 @@ def init_size(tkinter,gran,facets,paint_board):
 
     start_x = (screen_width - board_size) / 2
     start_y = (screen_height - board_size) / 2 - 20
-    gran(holst, start_x, start_y, board_size)
-    facets(holst, start_y, board_size, cell_size, start_x)
-    paint_board(holst, start_x, start_y, cell_size)
+    
+    return tkinter, holst, start_x, start_y, cell_size, board_size, screen_height, screen_width
